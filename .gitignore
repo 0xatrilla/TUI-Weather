@@ -1,0 +1,11 @@
+# build output
+/tuiwthr
+/weather
+/TUI-Weather
+
+# session/local state
+/.remember/
+/.omc/
+
+# OS junk
+.DS_Store
