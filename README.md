@@ -26,16 +26,30 @@ from [ip-api.com](https://ip-api.com/) — **no API keys required.**
 curl -fsSL https://raw.githubusercontent.com/0xatrilla/TUI-Weather/main/install.sh | bash
 ```
 
-This builds from source and installs the `tuiwthr` command into a directory on
-your `PATH` (`~/.local/bin`, `~/bin`, or `/usr/local/bin`). It requires
-[Go](https://go.dev/dl/) and `git`. If the install directory isn't on your
-`PATH`, the script tells you what to add to your shell profile.
+Downloads the latest **prebuilt binary** for your platform (macOS / Linux,
+Intel / Apple Silicon) and installs the `tuiwthr` command into a directory on
+your `PATH` (`~/.local/bin`, `~/bin`, or `/usr/local/bin`) — no Go required. If
+no prebuilt binary matches your platform it falls back to building from source
+(which needs [Go](https://go.dev/dl/) and `git`). If the install directory isn't
+on your `PATH`, the script tells you what to add to your shell profile.
 
 Then just run:
 
 ```bash
 tuiwthr
 ```
+
+### Homebrew (macOS / Linux)
+
+```bash
+brew install 0xatrilla/tap/tuiwthr
+```
+
+### Download a binary manually
+
+Grab an archive for your platform from the
+[latest release](https://github.com/0xatrilla/TUI-Weather/releases/latest),
+extract it, and put `tuiwthr` somewhere on your `PATH`.
 
 ### Build & run from source
 

@@ -1,0 +1,54 @@
+version: 2
+
+project_name: tuiwthr
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: tuiwthr
+    main: .
+    binary: tuiwthr
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+
+archives:
+  - id: default
+    # e.g. tuiwthr_darwin_arm64.tar.gz — matched by install.sh
+    name_template: "tuiwthr_{{ .Os }}_{{ .Arch }}"
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  github:
+    owner: 0xatrilla
+    name: TUI-Weather
+
+changelog:
+  use: github
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
